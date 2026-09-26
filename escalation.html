@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ Command | Escalation Monitor</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/hq-dashboard.css">
+</head>
+
+<body>
+    <div class="web-layout">
+        <!-- Persistent Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">HQ</div>
+                <div class="mine-info">
+                    <span class="mine-name" id="display-org">Loading...</span>
+                    <span class="mine-id">National Grid View</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav"></nav>
+            <div class="sidebar-profile">
+                <div class="profile-avatar" id="hq-avatar">HQ</div>
+                <div class="profile-details">
+                    <span class="profile-name" id="user-name">User</span>
+                    <span class="profile-role" id="user-title">Role</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header" style="justify-content: space-between;">
+                <div class="header-title">
+                    <h1>Escalation Monitoring Centre</h1>
+                </div>
+                <div class="header-user" style="display: flex; align-items: center; gap: 20px;">
+                    <div class="system-status" style="color: var(--success-green); font-weight: 600;">
+                        <span class="status-dot green" style="background-color: var(--success-green);"></span> AI Engine
+                        Online
+                    </div>
+                    <button id="logout-btn" class="btn-filter">Secure Logout</button>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Escalation KPIs -->
+                <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 24px;">
+                    <div class="kpi-card" style="border-top: 3px solid var(--critical-red);">
+                        <div class="kpi-title">Active Escalations</div>
+                        <div class="kpi-value" style="color: var(--critical-red);">12</div>
+                        <div style="font-size:10.5px; color:var(--text-muted); margin-top:4px;">Across all facilities
+                        </div>
+                    </div>
+                    <div class="kpi-card" style="border-top: 3px solid var(--warning-orange);">
+                        <div class="kpi-title">Level 3 (HQ) Pending</div>
+                        <div class="kpi-value" id="kpi-hq-pending">4</div>
+                        <div style="font-size:10.5px; color:var(--warning-orange); margin-top:4px;">Requires corporate
+                            intervention</div>
+                    </div>
+                    <div class="kpi-card" style="border-top: 3px solid var(--brand-brown);">
+                        <div class="kpi-title">Avg Resolution Delay</div>
+                        <div class="kpi-value">36 Hrs</div>
+                        <div style="font-size:10.5px; color:var(--text-muted); margin-top:4px;">Post-escalation
+                            timestamp</div>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="panel"
+                    style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; padding: 14px 20px;">
+                    <div style="display: flex; gap: 8px;" id="esc-filter-group">
+                        <button class="btn-filter active" data-filter="All">All Escalations</button>
+                        <button class="btn-filter" data-filter="Critical">Critical</button>
+                        <button class="btn-filter" data-filter="Overdue">Overdue</button>
+                    </div>
+                    <div style="display: flex; gap: 12px;">
+                        <select id="filter-mine"
+                            style="padding: 6px 12px; border-radius: 4px; border: 1px solid var(--border-medium); background: var(--bg-page); color: var(--text-primary); font-size: 13px;">
+                            <option value="All">All Mines</option>
+                            <option value="Mine A">Mine A</option>
+                            <option value="Mine B">Mine B</option>
+                            <option value="Mine C">Mine C</option>
+                        </select>
+                        <select id="filter-dept"
+                            style="padding: 6px 12px; border-radius: 4px; border: 1px solid var(--border-medium); background: var(--bg-page); color: var(--text-primary); font-size: 13px;">
+                            <option value="All">All Departments</option>
+                            <option value="Maintenance">Maintenance</option>
+                            <option value="Safety">Safety</option>
+                            <option value="Compliance">Compliance</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Escalation Ledger -->
+                <div class="panel">
+                    <div class="panel-header">Critical Pending Actions & Chain of Command</div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Facility</th>
+                                <th>Issue Description</th>
+                                <th>Assigned Dept.</th>
+                                <th>Current Delay</th>
+                                <th style="min-width: 250px;">Escalation Flow Tracker</th>
+                                <th>Level</th>
+                                <th>HQ Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="escalation-tbody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/hq.js"></script>
+    <script src="js/escalation.js"></script>
+</body>
+
+</html>

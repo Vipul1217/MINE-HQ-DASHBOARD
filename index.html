@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ Governance | Secure Access</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/hq-login.css">
+</head>
+
+<body class="hq-login-bg">
+    <div class="login-wrapper">
+        <!-- Left Side: High-Contrast Branding -->
+        <div class="login-branding">
+            <div class="hq-logo-large">HQ</div>
+            <h1>National Ecosystem Strategic Monitoring</h1>
+            <p>Centralized oversight, AI risk intelligence, and cross-mine compliance governance.</p>
+        </div>
+
+        <!-- Right Side: Clean Input Form -->
+        <div class="login-form-container">
+            <div class="login-header">
+                <h2>Corporate Governance Portal</h2>
+                <p>Authenticate for secure access</p>
+            </div>
+
+            <form id="hq-login-form" class="login-form">
+                <div id="login-error" class="error-banner" style="display: none;"></div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="org">Organization</label>
+                        <select id="org" required>
+                            <option value="" disabled selected>Select...</option>
+                            <option value="Coal Corporation">Coal Corp (Internal)</option>
+                            <option value="DGMS">DGMS (Regulatory)</option>
+                            <option value="Ministry of Coal">Ministry of Coal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Access Level</label>
+                        <select id="role" required>
+                            <option value="" disabled selected>Select...</option>
+                            <option value="hq">Corp Admin</option>
+                            <option value="regulatory">Auditor</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username / Employee ID</label>
+                    <input type="text" id="username" placeholder="e.g., HQ_Manager_01" required autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Secure Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn-hq-auth">Authenticate System Access</button>
+            </form>
+
+            <div class="login-footer">
+                <span>Unauthorized access is strictly prohibited under the IT Act.</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/hq-login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ Command | AI Risk Intelligence</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/hq-dashboard.css">
+</head>
+
+<body>
+    <div class="web-layout">
+        <!-- Persistent Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">HQ</div>
+                <div class="mine-info">
+                    <span class="mine-name" id="display-org">Loading...</span>
+                    <span class="mine-id">National Grid View</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav"></nav>
+            <div class="sidebar-profile">
+                <div class="profile-avatar" id="hq-avatar">HQ</div>
+                <div class="profile-details">
+                    <span class="profile-name" id="user-name">User</span>
+                    <span class="profile-role" id="user-title">Role</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header" style="justify-content: space-between;">
+                <div class="header-title">
+                    <h1>AI Risk Intelligence Centre</h1>
+                </div>
+                <div class="header-user" style="display: flex; align-items: center; gap: 20px;">
+                    <div class="system-status" style="color: var(--success-green); font-weight: 600;">
+                        <span class="status-dot green" style="background-color: var(--success-green);"></span> AI Engine
+                        Online
+                    </div>
+                    <button id="logout-btn" class="btn-filter">Secure Logout</button>
+                </div>
+            </header>
+
+            <div class="content-area dashboard-panels" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+
+                <!-- TOP ROW: AI Risk Ranking (Full Width) -->
+                <div class="panel" style="grid-column: span 2; border-top: 4px solid var(--critical-red);">
+                    <div class="panel-header" style="display: flex; align-items: center; gap: 8px;">
+                        <span>⚠️</span> AI Risk Ranking: Highest-Risk Facilities
+                    </div>
+                    <div style="display: flex; gap: 16px; margin-top: 16px;">
+
+                        <!-- Rank 1 Card -->
+                        <div class="ai-risk-card"
+                            style="flex: 1; background: #FEF2F2; border: 1px solid #FCA5A5; padding: 16px; border-radius: 8px;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <div>
+                                    <h3 style="color: var(--critical-red); margin: 0 0 4px 0;">1. Mine B (Dhanbad)</h3>
+                                    <span class="badge badge-critical">Critical Action Required</span>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 24px; font-weight: 800; color: var(--critical-red);">89<span
+                                            style="font-size: 14px; color: #999;">/100</span></div>
+                                    <div style="font-size: 11px; color: var(--critical-red); font-weight: 600;">Risk
+                                        Score</div>
+                                </div>
+                            </div>
+                            <div
+                                style="font-size: 13px; color: var(--text-primary); font-weight: 600; margin-bottom: 8px;">
+                                AI Identified Reasons:</div>
+                            <ul
+                                style="font-size: 13px; color: var(--text-secondary); padding-left: 20px; margin: 0; line-height: 1.6;">
+                                <li><strong>8 repeated violations</strong> in the last 30 days</li>
+                                <li><strong>4 overdue critical actions</strong></li>
+                                <li>Exponentially increasing incident frequency</li>
+                            </ul>
+                            <button class="btn-action"
+                                style="width: 100%; margin-top: 16px; background: var(--critical-red);">Enforce
+                                Immediate Audit</button>
+                        </div>
+
+                        <!-- Rank 2 Card -->
+                        <div class="ai-risk-card"
+                            style="flex: 1; background: #FFF7ED; border: 1px solid #FDBA74; padding: 16px; border-radius: 8px;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <div>
+                                    <h3 style="color: var(--warning-orange); margin: 0 0 4px 0;">2. Mine C (Bokaro)</h3>
+                                    <span class="badge badge-warning">Elevated Risk</span>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 24px; font-weight: 800; color: var(--warning-orange);">
+                                        74<span style="font-size: 14px; color: #999;">/100</span></div>
+                                    <div style="font-size: 11px; color: var(--warning-orange); font-weight: 600;">Risk
+                                        Score</div>
+                                </div>
+                            </div>
+                            <div
+                                style="font-size: 13px; color: var(--text-primary); font-weight: 600; margin-bottom: 8px;">
+                                AI Identified Reasons:</div>
+                            <ul
+                                style="font-size: 13px; color: var(--text-secondary); padding-left: 20px; margin: 0; line-height: 1.6;">
+                                <li>Historical highwall instability detected</li>
+                                <li>Maintenance logs showing 12-hour delays</li>
+                                <li>Staffing shortages in safety compliance sector</li>
+                            </ul>
+                            <button class="btn-text"
+                                style="width: 100%; margin-top: 16px; border: 1px solid var(--warning-orange); color: var(--warning-orange);">Review
+                                Operations</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- BOTTOM LEFT: Risk Prediction -->
+                <div class="panel" style="border-top: 4px solid var(--brand-brown);">
+                    <div class="panel-header" style="display: flex; align-items: center; gap: 8px;">
+                        <span>🔮</span> Predictive Risk Modeling
+                    </div>
+                    <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 12px;">
+                        <div
+                            style="padding: 16px; background: var(--bg-page); border: 1px solid var(--border-medium); border-radius: 8px; border-left: 4px solid var(--critical-red);">
+                            <div
+                                style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+                                Short-Term Forecast</div>
+                            <h4 style="margin: 8px 0; font-size: 15px; color: var(--text-primary);">Sector C of Mine B
+                            </h4>
+                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                                AI models indicate an <strong>84% probability</strong> of a localized ventilation
+                                failure within the next 72 hours based on recent sensor drift and environmental factors.
+                            </p>
+                        </div>
+                        <button class="btn-text" style="align-self: flex-start;">Generate Preventive Work Order</button>
+                    </div>
+                </div>
+
+                <!-- BOTTOM RIGHT: Recurring Failure Detection -->
+                <div class="panel" style="border-top: 4px solid var(--warning-orange);">
+                    <div class="panel-header" style="display: flex; align-items: center; gap: 8px;">
+                        <span>🧠</span> Systemic Pattern Detection
+                    </div>
+                    <div style="margin-top: 16px;">
+                        <div
+                            style="padding: 16px; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px;">
+                            <h4 style="margin: 0 0 12px 0; font-size: 14px; color: var(--text-primary);">Hydraulic Pump
+                                Seal Failure (Model X-700)</h4>
+                            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                                <span class="badge badge-normal">Mine A</span>
+                                <span class="badge badge-normal">Mine B</span>
+                                <span class="badge badge-normal">Mine C</span>
+                            </div>
+                            <p
+                                style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0 0 12px 0;">
+                                <strong>Pattern Found:</strong> The exact same equipment component issue has been logged
+                                across 3 independent facilities within a 14-day window.
+                            </p>
+                            <div
+                                style="padding: 10px; background: #ECFEFF; border: 1px solid #A5F3FC; border-radius: 4px; color: #0891B2; font-size: 13px; font-weight: 600;">
+                                Recommendation: Initiate immediate fleet-wide review of corporate maintenance policy for
+                                Model X-700.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <script src="js/hq.js"></script>
+</body>
+
+</html>

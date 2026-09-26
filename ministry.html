@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministry of Coal | Strategic Oversight</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/hq-dashboard.css">
+</head>
+
+<body>
+    <div class="web-layout">
+        <!-- Persistent Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">GOV</div>
+                <div class="mine-info">
+                    <span class="mine-name">Ministry of Coal</span>
+                    <span class="mine-id">Government of India</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">NATIONAL OVERSIGHT</div>
+                <a href="#" class="nav-item active">Strategic Dashboard</a>
+            </nav>
+
+            <!-- Fixed Profile Footer -->
+            <div class="sidebar-profile"
+                style="display: flex; align-items: center; padding: 16px 20px; border-top: 1px solid var(--border-light); background: var(--bg-card); margin-top: auto;">
+                <div id="min-avatar"
+                    style="width: 36px; height: 36px; border-radius: 50%; background: var(--brand-brown); color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0;">
+                    GS</div>
+                <div style="display: flex; flex-direction: column; margin-left: 12px; overflow: hidden;">
+                    <span id="min-name"
+                        style="font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; text-overflow: ellipsis;">Gov.
+                        Secretary</span>
+                    <span id="min-role"
+                        style="font-size: 11px; color: var(--text-muted); white-space: nowrap; text-overflow: ellipsis;">Ministry
+                        Oversight</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header" style="justify-content: space-between;">
+                <div class="header-title">
+                    <h1>National Coal Ecosystem: Executive Brief</h1>
+                </div>
+                <div class="header-user" style="display: flex; align-items: center; gap: 20px;">
+                    <div class="system-status" style="color: var(--brand-brown); font-weight: 600;">
+                        <span class="status-dot" style="background-color: var(--brand-brown);"></span> Government
+                        Clearance Active
+                    </div>
+                    <!-- Fixed Logout Button -->
+                    <button id="btn-ministry-logout" class="btn-logout">Secure Logout</button>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Strategic KPI Strip -->
+                <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 24px;">
+                    <div class="kpi-card" style="border-top: 3px solid var(--brand-brown);">
+                        <div class="kpi-title">Active Collieries Monitored</div>
+                        <div class="kpi-value" style="font-size: 32px; color: var(--text-primary);">48</div>
+                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Across all PSUs</div>
+                    </div>
+                    <div class="kpi-card" style="border-top: 3px solid var(--success-green);">
+                        <div class="kpi-title">National Safety Compliance</div>
+                        <div class="kpi-value" style="font-size: 32px; color: var(--success-green);">94.2%</div>
+                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">DGMS Verified Average
+                        </div>
+                    </div>
+                    <div class="kpi-card" style="border-top: 3px solid var(--critical-red);">
+                        <div class="kpi-title">Critical Escalations (HQ)</div>
+                        <div class="kpi-value" style="font-size: 32px; color: var(--critical-red);">3</div>
+                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Pending Corporate
+                            Resolution</div>
+                    </div>
+                    <div class="kpi-card" style="border-top: 3px solid var(--warning-orange);">
+                        <div class="kpi-title">Active AI Interventions</div>
+                        <div class="kpi-value" style="font-size: 32px; color: var(--warning-orange);">12</div>
+                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Predictive maintenance
+                            flagged</div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+                    <!-- National Governance Ledger -->
+                    <div class="panel">
+                        <div class="panel-header">National Governance & Compliance Ledger</div>
+                        <table class="data-table" style="margin-top: 14px;">
+                            <thead>
+                                <tr>
+                                    <th>Corporation / Facility</th>
+                                    <th>Region</th>
+                                    <th>Compliance Rating</th>
+                                    <th>DGMS Audit Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: 700;">Jharia Colliery (MINE-A)</td>
+                                    <td>Jharkhand</td>
+                                    <td>96%</td>
+                                    <td><span class="badge badge-success">Clear</span></td>
+                                </tr>
+                                <tr style="background-color: var(--bg-card);">
+                                    <td style="font-weight: 700; color: var(--brand-brown);">Dhanbad Grid (MINE-B)</td>
+                                    <td>Jharkhand</td>
+                                    <td>81%</td>
+                                    <td><span class="badge badge-critical">Under Review</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 700;">Singrauli Sector (MINE-C)</td>
+                                    <td>Madhya Pradesh</td>
+                                    <td>92%</td>
+                                    <td><span class="badge badge-warning">Pending Notice</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Live Enforcement Action Feed -->
+                    <div class="panel">
+                        <div class="panel-header">Regulatory Enforcement Feed</div>
+                        <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 16px;">
+                            <div
+                                style="display: flex; gap: 12px; align-items: flex-start; border-bottom: 1px solid var(--border-light); padding-bottom: 12px;">
+                                <span class="status-dot red" style="margin-top: 4px;"></span>
+                                <div>
+                                    <div style="font-size: 13px; font-weight: 700; color: var(--text-primary);">
+                                        Corporate Intervention Required</div>
+                                    <div
+                                        style="font-size: 12px; color: var(--text-secondary); margin-top: 4px; line-height: 1.4;">
+                                        DGMS flagged Mine B for consecutive ventilation failures. Awaiting HQ response.
+                                    </div>
+                                    <div
+                                        style="font-size: 10px; color: var(--text-muted); margin-top: 6px; font-weight: 700; text-transform: uppercase;">
+                                        Today, 10:45 AM</div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: flex-start;">
+                                <span class="status-dot green" style="margin-top: 4px;"></span>
+                                <div>
+                                    <div style="font-size: 13px; font-weight: 700; color: var(--text-primary);">
+                                        Statutory Audit Sealed</div>
+                                    <div
+                                        style="font-size: 12px; color: var(--text-secondary); margin-top: 4px; line-height: 1.4;">
+                                        Mine A submitted monthly compliance ledger. Cryptographically verified.</div>
+                                    <div
+                                        style="font-size: 10px; color: var(--text-muted); margin-top: 6px; font-weight: 700; text-transform: uppercase;">
+                                        Yesterday, 16:30 PM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/ministry.js"></script>
+</body>
+
+</html>

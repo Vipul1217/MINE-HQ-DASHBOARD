@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ Multi-Mine GIS - CMG</title>
+
+    <!-- FIX: If your global CSS is in the parent folder, change this to ../css/global.css -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- FIX: Corrected the filename to match your actual CSS file -->
+    <link rel="stylesheet" href="css/hq-dashboard.css">
+
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+    <div class="web-layout">
+        <!-- Persistent HQ Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">HQ</div>
+                <div class="mine-info">
+                    <span class="mine-name">Coal Corporation</span>
+                    <span class="mine-id">National Grid View</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">STRATEGIC VIEW</div>
+                <a href="index.html" class="nav-item">Corporate Overview</a>
+                <a href="gis-map.html" class="nav-item active">Multi-Mine GIS Map</a>
+                <a href="#" class="nav-item">Cross-Mine Analytics</a>
+
+                <div class="nav-section-title">INTELLIGENCE & RISK</div>
+                <a href="#" class="nav-item">AI Risk Center</a>
+                <a href="#" class="nav-item">Escalation Monitor</a>
+
+                <div class="nav-section-title">GOVERNANCE</div>
+                <a href="#" class="nav-item">Compliance Dashboard</a>
+                <a href="#" class="nav-item">Reports & Audit Trail</a>
+            </nav>
+
+            <div class="sidebar-profile">
+                <div class="profile-avatar" id="hq-avatar">CE</div>
+                <div class="profile-details">
+                    <span class="profile-name" id="user-name">User</span>
+                    <span class="profile-role" id="user-title">Role</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content" style="display: flex; flex-direction: column; height: 100vh; overflow: hidden;">
+            <header class="top-header" style="height: 80px; flex-shrink: 0;">
+                <div class="header-title">
+                    <h1>National GIS Ecosystem</h1>
+                </div>
+                <div class="header-user">
+                    <div class="system-status">
+                        <span class="status-dot green"></span> Network Secure
+                    </div>
+                    <button id="logout-btn" class="btn-logout">Secure Logout</button>
+                </div>
+            </header>
+
+            <!-- Map & Panel Container -->
+            <div style="display: flex; flex: 1; overflow: hidden;">
+
+                <!-- Leaflet Map Div -->
+                <div id="hq-map-view" style="flex: 1; z-index: 1;"></div>
+
+                <!-- Right Side Panel (Scrollable) -->
+                <div class="map-side-panel"
+                    style="width: 360px; background: var(--bg-surface); border-left: 1px solid var(--border-medium); overflow-y: auto; padding: 24px; position: relative; z-index: 2;">
+
+                    <!-- State 1: Placeholder -->
+                    <div id="panel-placeholder"
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--text-muted); text-align: center;">
+                        <span style="font-size: 32px; margin-bottom: 12px;">🗺️</span>
+                        <p style="font-size: 13px;">Select a mine marker on the map to view real-time governance metrics
+                            and compliance status.</p>
+                    </div>
+
+                    <!-- State 2: Content Details -->
+                    <div id="panel-content" style="display: none; padding-bottom: 40px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                            <div>
+                                <h2 id="detail-name"
+                                    style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">
+                                    Mine Name</h2>
+                                <span id="detail-status" class="badge">Status</span>
+                            </div>
+                            <button id="close-panel"
+                                style="background: none; border: 1px solid var(--border-medium); color: var(--text-primary); cursor: pointer; padding: 4px 8px; border-radius: 4px; font-weight: bold;">&times;</button>
+                        </div>
+
+                        <div class="kpi-card" style="margin-bottom: 16px;">
+                            <div class="kpi-title">AI Risk Score</div>
+                            <div id="detail-risk-score" class="kpi-value" style="font-size: 32px;">--/100</div>
+                        </div>
+
+                        <div class="kpi-card" style="margin-bottom: 24px;">
+                            <div class="kpi-title">Statutory Compliance</div>
+                            <div id="detail-compliance" class="kpi-value" style="font-size: 32px;">--%</div>
+                        </div>
+
+                        <div style="display: flex; gap: 16px; margin-bottom: 24px;">
+                            <div style="flex: 1;">
+                                <div
+                                    style="font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 4px;">
+                                    Open Issues</div>
+                                <div id="detail-open"
+                                    style="font-size: 20px; font-weight: 700; color: var(--text-primary);">--</div>
+                            </div>
+                            <div style="flex: 1;">
+                                <div
+                                    style="font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 4px;">
+                                    Critical Escalations</div>
+                                <div id="detail-critical"
+                                    style="font-size: 20px; font-weight: 700; color: var(--text-primary);">--</div>
+                            </div>
+                        </div>
+
+                        <!-- JavaScript will inject the Facility Profile block here -->
+                        <div id="dynamic-mine-summary"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Leaflet JS & Custom App Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/hq.js"></script>
+</body>
+
+</html>

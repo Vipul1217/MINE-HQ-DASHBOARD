@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-Mine Analytics - CMG</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/hq-dashboard.css">
+
+    <style>
+        /* Custom Analytics Styles embedded to prevent altering your main CSS */
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        /* Bar Chart Styles */
+        .chart-container {
+            display: flex;
+            align-items: flex-end;
+            height: 180px;
+            gap: 30px;
+            padding: 20px 20px 0 20px;
+            border-bottom: 1px solid var(--border-medium);
+            margin-top: 10px;
+        }
+
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            gap: 8px;
+        }
+
+        .bar-value {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .bar-fill {
+            width: 50px;
+            border-radius: 6px 6px 0 0;
+            transition: height 0.5s ease;
+        }
+
+        .bar-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        /* AI Insight Card */
+        .ai-insight {
+            background: linear-gradient(145deg, #FFF7ED, #FFFFFF);
+            border: 1px solid #FFEDD5;
+            border-left: 5px solid #F59E0B;
+            padding: 24px;
+            border-radius: var(--radius-md);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ai-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .ai-icon {
+            width: 32px;
+            height: 32px;
+            background: #FEF3C7;
+            color: #D97706;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .ai-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        /* Comparison Table */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .compare-table th {
+            text-align: left;
+            padding: 16px;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            border-bottom: 2px solid var(--border-medium);
+        }
+
+        .compare-table td {
+            padding: 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .compare-table tr:hover {
+            background-color: rgba(0, 0, 0, 0.01);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="web-layout">
+        <!-- Persistent HQ Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">HQ</div>
+                <div class="mine-info">
+                    <span class="mine-name">Coal Corporation</span>
+                    <span class="mine-id">National Grid View</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">STRATEGIC VIEW</div>
+                <a href="index.html" class="nav-item">Corporate Overview</a>
+                <a href="gis-map.html" class="nav-item">Multi-Mine GIS Map</a>
+                <a href="cross-mine.html" class="nav-item active">Cross-Mine Analytics</a>
+
+                <div class="nav-section-title">INTELLIGENCE & RISK</div>
+                <a href="#" class="nav-item">AI Risk Center</a>
+                <a href="#" class="nav-item">Escalation Monitor</a>
+
+                <div class="nav-section-title">GOVERNANCE</div>
+                <a href="#" class="nav-item">Compliance Dashboard</a>
+                <a href="#" class="nav-item">Reports & Audit Trail</a>
+            </nav>
+
+            <div class="sidebar-profile">
+                <div class="profile-avatar" id="hq-avatar">CE</div>
+                <div class="profile-details">
+                    <span class="profile-name" id="user-name">User</span>
+                    <span class="profile-role" id="user-title">Role</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-title">
+                    <h1>Cross-Mine Analytics</h1>
+                </div>
+                <div class="header-user">
+                    <div class="system-status">
+                        <span class="status-dot green"></span> AI Engine Online
+                    </div>
+                    <button id="logout-btn" class="btn-logout">Secure Logout</button>
+                </div>
+            </header>
+
+            <div class="content-area">
+
+                <div class="analytics-grid">
+                    <!-- Panel 1: Incident Trends -->
+                    <div class="panel">
+                        <div class="panel-header"
+                            style="display: flex; justify-content: space-between; align-items: center;">
+                            Incident Trend Analysis
+                            <span class="badge"
+                                style="background: #F3F4F6; color: #4B5563; border: 1px solid #D1D5DB;">Ventilation
+                                Systems</span>
+                        </div>
+
+                        <div class="chart-container">
+                            <div class="bar-group">
+                                <span class="bar-value">5</span>
+                                <div class="bar-fill" style="height: 35%; background-color: #10B981;"></div>
+                                <span class="bar-label">January</span>
+                            </div>
+                            <div class="bar-group">
+                                <span class="bar-value">9</span>
+                                <div class="bar-fill" style="height: 60%; background-color: #F59E0B;"></div>
+                                <span class="bar-label">February</span>
+                            </div>
+                            <div class="bar-group">
+                                <span class="bar-value" style="color: #EF4444;">14</span>
+                                <div class="bar-fill" style="height: 90%; background-color: #EF4444;"></div>
+                                <span class="bar-label">March</span>
+                            </div>
+                        </div>
+
+                        <div
+                            style="margin-top: 16px; padding: 12px; background: #FEF2F2; border-radius: 6px; border: 1px solid #FEE2E2;">
+                            <span style="color: #DC2626; font-size: 12px; font-weight: 700;">⚠️ Upward Trajectory
+                                Detected:</span>
+                            <span style="color: #991B1B; font-size: 12px;"> 180% increase in ventilation anomalies over
+                                90 days. Recommend immediate mechanical inspection.</span>
+                        </div>
+                    </div>
+
+                    <!-- Panel 2: AI Common Issue Detection -->
+                    <div class="ai-insight">
+                        <div class="ai-header">
+                            <div class="ai-icon">🧠</div>
+                            <h2 class="ai-title">Systemic Issue Detected</h2>
+                        </div>
+
+                        <div style="flex: 1;">
+                            <div
+                                style="font-size: 18px; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
+                                Hydraulic Equipment Failure
+                            </div>
+
+                            <div
+                                style="display: flex; flex-direction: column; gap: 12px; font-size: 13px; color: var(--text-secondary);">
+                                <div
+                                    style="display: flex; justify-content: space-between; border-bottom: 1px solid #FFEDD5; padding-bottom: 8px;">
+                                    <span>Affected Facilities:</span>
+                                    <span style="font-weight: 700; color: var(--text-primary);">Across 5 independent
+                                        mines</span>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; border-bottom: 1px solid #FFEDD5; padding-bottom: 8px;">
+                                    <span>Frequency Trend:</span>
+                                    <span style="font-weight: 700; color: #D97706;">Increasing rapidly (+32% MoM)</span>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; border-bottom: 1px solid #FFEDD5; padding-bottom: 8px;">
+                                    <span>Root Cause Correlation:</span>
+                                    <span style="font-weight: 700; color: var(--text-primary);">Batch Procurement Model
+                                        X-700</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn-action"
+                            style="width: 100%; margin-top: 20px; background-color: #D97706;">Initiate Fleet-Wide
+                            Audit</button>
+                    </div>
+                </div>
+
+                <!-- Panel 3: Mine Comparison -->
+                <div class="panel span-full">
+                    <div class="panel-header">Mine Operations Benchmark Comparison</div>
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Facility</th>
+                                <th>AI Risk Score</th>
+                                <th>Statutory Compliance</th>
+                                <th>Avg. Resolution Speed</th>
+                                <th>Safety Performance Index</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="color: var(--text-primary);">Mine A (Jharia)</td>
+                                <td><span class="badge badge-success">12 / 100</span></td>
+                                <td>96%</td>
+                                <td>1.2 Days</td>
+                                <td><span style="color: #10B981;">Excellent</span></td>
+                            </tr>
+                            <tr>
+                                <td style="color: var(--text-primary);">Mine B (Dhanbad)</td>
+                                <td><span class="badge badge-critical">82 / 100</span></td>
+                                <td>88%</td>
+                                <td>4.5 Days</td>
+                                <td><span style="color: #EF4444; font-weight: 700;">Critical Review Required</span></td>
+                            </tr>
+                            <tr>
+                                <td style="color: var(--text-primary);">Mine C (Bokaro)</td>
+                                <td><span class="badge badge-warning">45 / 100</span></td>
+                                <td>91%</td>
+                                <td>2.8 Days</td>
+                                <td><span style="color: #F59E0B;">Active Monitoring</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/hq.js"></script>
+</body>
+
+</html>
